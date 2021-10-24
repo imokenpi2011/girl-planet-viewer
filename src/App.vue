@@ -1,55 +1,40 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <router-view/>
-    </v-main>
-  </v-app>
+  <Main />
 </template>
 
 <script>
+import { mapActions } from "vuex";
+import Main from "@/views/Main.vue";
 
 export default {
-  name: 'App',
-
-  data: () => ({
-    //
-  }),
+  components: { Main },
+  name: "App",
+  created() {
+    this.createGirlsData();
+  },
+  methods: {
+    ...mapActions({
+      createGirlsData: "createGirlsData",
+    }),
+  },
 };
 </script>
+
+<style>
+.v-application {
+  font-family: Kiwi Maru, Work Sans !important;
+}
+
+.v-application h1 {
+  font-size: 3rem;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.1s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
