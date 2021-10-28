@@ -21,8 +21,12 @@ export default {
 </script>
 
 <style>
+header {
+  font-family: "Azonix" !important;
+}
+
 .v-application {
-  font-family: Kiwi Maru, Work Sans !important;
+  font-family: Kiwi Maru, Work Sans, sans-serif !important;
 }
 
 .v-application h1 {
@@ -36,5 +40,23 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+.bungee {
+  font-family: "Bungee", cursive !important;
+}
+
+.bungee-outline {
+  font-family: "Bungee Outline", cursive !important;
+  -webkit-text-stroke-width: 2.5px;
+  font-size: 40px;
+}
+
+.bungee-inline {
+  font-family: "Bungee Inline", cursive !important;
+}
+
+.button-border {
+  border-width: 3px;
 }
 </style>
