@@ -1,22 +1,18 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12">
-        <v-card>
-          <v-row>
-            <v-col cols="2"></v-col>
-            <v-col cols="10">
-              <v-img
-                :src="data.profile_image_main"
-                class="white--text align-end px-0"
-                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                position="35% 32%"
-                height="200px"
-              >
-                <v-card-title v-text="data.name.ja"></v-card-title>
-              </v-img>
-            </v-col>
-          </v-row>
+      <v-col v-for="(trainee, i) in data" :key="i" cols="4">
+        <v-card class="black--text" color="transparent" flat>
+          <v-img
+            :src="trainee.profile_image_main"
+            class="align-end px-0 rounded-xl"
+            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+            aspect-ratio="1"
+            position="0% 40%"
+          >
+            <v-card-subtitle v-text="trainee.name.ja"></v-card-subtitle>
+            <v-card-text v-text="trainee.name.en"></v-card-text>
+          </v-img>
         </v-card>
       </v-col>
     </v-row>

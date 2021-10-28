@@ -1,7 +1,10 @@
 <template>
-  <v-app>
+  <v-app
+    :style="{ background: $vuetify.theme.themes.light.background }"
+    class="purple--text text--darken-4"
+  >
     <v-main class="text-center">
-      <h1>99 GIRLS</h1>
+      <PageTitle title="99 GIRLS" />
       <SelectGroup
         :data="groupList"
         :curGroup="curGroup"
@@ -12,19 +15,21 @@
           <v-col
             v-for="(candidate, i) in curGroupTrainees"
             :key="i"
-            cols="6"
+            cols="4"
             @click="viewDetail(candidate.slug)"
           >
-            <v-card>
+            <v-card class="black--text" color="transparent" flat>
               <v-img
                 :src="candidate.profile_image_main"
-                class="white--text align-end"
+                class="rounded-circle"
                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                height="200px"
-                position="35% 32%"
+                aspect-ratio="1"
+                position="0% 40%"
               >
-                <v-card-title v-text="candidate.name.ja"></v-card-title>
               </v-img>
+
+              <p class="text-h5" v-text="candidate.name.ja"></p>
+              <p class="text-h6" v-text="candidate.name.en"></p>
             </v-card>
           </v-col>
         </v-row>
@@ -35,12 +40,13 @@
 </template>
 
 <script scope>
+import PageTitle from "@/components/PageTitle.vue";
 import SelectGroup from "@/components/SelectGroup.vue";
 import Detail from "@/components/GirlsDetail.vue";
 import { mapGetters } from "vuex";
 
 export default {
-  components: { SelectGroup, Detail },
+  components: { SelectGroup, Detail, PageTitle },
   name: "Girls",
   data() {
     return {

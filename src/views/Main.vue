@@ -1,7 +1,16 @@
 <template>
-  <v-app>
+  <v-app
+    :style="{ background: $vuetify.theme.themes.light.background }"
+    class="purple--text text--darken-4"
+    app
+  >
     <header>
-      <v-app-bar app>
+      <v-app-bar
+        app
+        flat
+        color="transparent"
+        class="purple--text text--darken-4"
+      >
         <v-spacer class="hidden-md-and-up"></v-spacer>
         <v-toolbar-title
           ><router-link to="/" style="text-decoration: none; color: inherit;"
@@ -86,22 +95,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.v-application {
-  font-family: Kiwi Maru, Work Sans !important;
-}
-
-.v-application h1 {
-  font-size: 3rem;
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.1s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>

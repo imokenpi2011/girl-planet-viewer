@@ -1,8 +1,11 @@
 <template>
-  <v-app>
+  <v-app
+    :style="{ background: $vuetify.theme.themes.light.background }"
+    class="purple--text text--darken-4"
+  >
     <v-main class="text-center">
       <v-container>
-        <h1>Ranking</h1>
+        <PageTitle title="RANKING" />
         <SelectPhase :curPhase="curPhase" @changePhase="setPhase" />
         <v-row>
           <v-col col="12">
@@ -24,9 +27,7 @@
         <v-row>
           <v-col col="12">
             <div v-if="isCurPage('planet')">
-              <div v-for="(trainee, i) in rankingData.planet" :key="i">
-                <Planet :data="trainee" :girlsData="getGirlsData" />
-              </div>
+              <Planet :data="rankingData.planet" :girlsData="getGirlsData" />
             </div>
             <div v-if="isCurPage('cell')">
               <Cell :data="rankingData.cell" :girlsData="getGirlsData" />
@@ -42,6 +43,7 @@
 </template>
 
 <script scope>
+import PageTitle from "@/components/PageTitle.vue";
 import Planet from "./ranking/Planet.vue";
 import Cell from "./ranking/Cell.vue";
 import Group from "./ranking/Group.vue";
@@ -51,6 +53,7 @@ import { mapGetters } from "vuex";
 export default {
   name: "ranking",
   components: {
+    PageTitle,
     Planet,
     Cell,
     Group,
@@ -85,6 +88,14 @@ export default {
         },
         {
           phase: 2,
+          avairableTab: ["planet", "group"],
+        },
+        {
+          phase: 3,
+          avairableTab: ["planet", "group"],
+        },
+        {
+          phase: 4,
           avairableTab: ["planet", "group"],
         },
       ],

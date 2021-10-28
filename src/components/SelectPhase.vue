@@ -32,6 +32,14 @@ export default {
           dispName: "2ND RESULT",
           value: 2,
         },
+        {
+          dispName: "3ND RESULT",
+          value: 3,
+        },
+        {
+          dispName: "FINAL RESULT",
+          value: 4,
+        },
       ],
     };
   },
