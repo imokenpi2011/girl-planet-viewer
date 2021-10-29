@@ -5,14 +5,15 @@
         <v-card class="black--text" color="transparent" flat>
           <v-img
             :src="trainee.profile_image_main"
-            class="align-end px-0 rounded-xl"
-            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+            :class="getGroupClass(trainee.group)"
+            class="rounded-circle img-border"
             aspect-ratio="1"
             position="0% 40%"
           >
-            <v-card-subtitle v-text="trainee.name.ja"></v-card-subtitle>
-            <v-card-text v-text="trainee.name.en"></v-card-text>
           </v-img>
+
+          <div class="caption" v-text="trainee.name.ja"></div>
+          <div class="slug-text azonix" v-text="trainee.name.en"></div>
         </v-card>
       </v-col>
     </v-row>
@@ -33,6 +34,15 @@ export default {
   },
   computed: {
     ...mapGetters(["getGirlsData", "getTraineeId"]),
+    getGroupClass() {
+      return function(group) {
+        return {
+          "border-k": group === "K",
+          "border-c": group === "C",
+          "border-j": group === "J",
+        };
+      };
+    },
   },
   methods: {
     viewDetail(name) {
@@ -51,4 +61,28 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.slug-text {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 300;
+}
+
+.img-border {
+  border: solid 2px transparent;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+.border-k {
+  border-color: #83c7de;
+}
+
+.border-c {
+  border-color: #deaaa9;
+}
+
+.border-j {
+  border-color: #ffe4b8;
+}
+</style>

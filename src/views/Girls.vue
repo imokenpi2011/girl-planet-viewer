@@ -16,13 +16,13 @@
             v-for="(candidate, i) in curGroupTrainees"
             :key="i"
             cols="4"
+            sm="3"
             @click="viewDetail(candidate.slug)"
           >
             <v-card class="black--text" color="transparent" flat>
               <v-img
                 :src="candidate.profile_image_main"
                 class="rounded-circle"
-                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                 aspect-ratio="1"
                 position="0% 40%"
               >
