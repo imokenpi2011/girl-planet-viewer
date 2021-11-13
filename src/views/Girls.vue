@@ -13,23 +13,23 @@
       <v-container>
         <v-row>
           <v-col
-            v-for="(candidate, i) in curGroupTrainees"
+            v-for="(trainee, i) in curGroupTrainees"
             :key="i"
             cols="4"
             sm="3"
-            @click="viewDetail(candidate.slug)"
+            @click="viewDetail(trainee.slug)"
           >
             <v-card class="black--text" color="transparent" flat>
               <v-img
-                :src="candidate.profile_image_main"
+                :src="trainee.profile_image_main"
                 class="rounded-circle"
                 aspect-ratio="1"
                 position="0% 40%"
               >
               </v-img>
 
-              <p class="text-h5" v-text="candidate.name.ja"></p>
-              <p class="text-h6" v-text="candidate.name.en"></p>
+              <p class="text-h5" v-text="trainee.name.ja"></p>
+              <p class="text-h6" v-text="trainee.name.en"></p>
             </v-card>
           </v-col>
         </v-row>
